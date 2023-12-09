@@ -1,13 +1,18 @@
-import { Typography } from "@mui/material";
-import { useTranslate } from "hooks/useTranslate";
+import { Grid } from "@mui/material";
+import GameGrid from "components/GameGrid";
+import GameInfo from "components/GameInfo";
 import { PageWrapper } from "layout/PageWrapper";
+import { sxStyles } from "./styles";
 
 const GamePage = () => {
-  const { translate } = useTranslate();
+  const classes = sxStyles();
 
   return (
     <PageWrapper>
-      <Typography>{translate("common.hello_world", "Hello World!")}</Typography>
+      <Grid container columns={4} sx={classes.container}>
+        <GameInfo />
+        <GameGrid />
+      </Grid>
     </PageWrapper>
   );
 };
