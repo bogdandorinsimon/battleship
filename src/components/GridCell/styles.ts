@@ -7,7 +7,7 @@ export const sxStyles = (): { [_: string]: SxProps } => ({
     borderWidth: 1,
     borderColor: theme.palette.black.main
   },
-  button: {
+  cellContent: {
     width: "100%",
     height: "100%"
   }

@@ -7,3 +7,5 @@ export type SnackbarOptions = {
   vertical?: "bottom" | "top";
   horizontal?: "center" | "right" | "left";
 };
+
+export type CellMode = "not_clicked" | "hit" | "miss";

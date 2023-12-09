@@ -3,6 +3,7 @@ import { useRef } from "react";
 import GridCell from "components/GridCell";
 import { useElementDimensions } from "hooks/useElementDimensions";
 import { useWindowDimensions } from "hooks/useWindowDimensions";
+import { CellMode } from "models/components";
 import { sxStyles } from "./styles";
 
 const NO_OF_GRID_COLUMNS = 10;
@@ -26,7 +27,14 @@ const GameGrid = () => {
     >
       <Grid container columns={NO_OF_GRID_COLUMNS} sx={classes.grid}>
         {GRID_ARRAY.map((cell) => (
-          <GridCell key={cell} />
+          <GridCell
+            key={cell}
+            cellMode={
+              ["not_clicked", "hit", "miss"].at(
+                Math.floor(Math.random() * 3)
+              )! as CellMode
+            }
+          />
         ))}
       </Grid>
     </Grid>

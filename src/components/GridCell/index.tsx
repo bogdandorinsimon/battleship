@@ -1,12 +1,32 @@
-import { Button, Grid } from "@mui/material";
+import { Box, Button, Grid } from "@mui/material";
+import HitImage from "assets/hit.png";
+import MissImage from "assets/miss.png";
+import { CellMode } from "models/components";
 import { sxStyles } from "./styles";
 
-const GridCell = () => {
+type Props = {
+  cellMode: CellMode;
+};
+
+const GridCell = ({ cellMode }: Props) => {
   const classes = sxStyles();
 
+  const renderCellContent = () => {
+    if (cellMode === "not_clicked") {
+      return <Button sx={classes.cellContent} />;
+    }
+
+    return (
+      <Box
+        sx={classes.cellContent}
+        component="img"
+        src={cellMode === "hit" ? HitImage : MissImage}
+      />
+    );
+  };
   return (
     <Grid item xs={1} sx={classes.cell}>
-      <Button sx={classes.button} />
+      {renderCellContent()}
     </Grid>
   );
 };
