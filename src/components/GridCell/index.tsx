@@ -6,7 +6,7 @@ const GridCell = () => {
 
   return (
     <Grid item xs={1} sx={classes.cell}>
-      <Button sx={{ display: "flex", width: "100%", height: "100%" }} />
+      <Button sx={classes.button} />
     </Grid>
   );
 };

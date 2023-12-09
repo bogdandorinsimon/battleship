@@ -4,7 +4,7 @@ import { ROUTER_PATH } from "helpers/constants";
 import { ErrorBoundary } from "layout/ErrorBoundary";
 import { MainLayout } from "layout/MainLayout";
 
-const GamePage = lazy(() => import("features/game/GamePage"));
+const GamePage = lazy(() => import("pages/GamePage"));
 const PageNotFound = lazy(() => import("routes/PageNotFound"));
 
 export const AppRoutes = () => {

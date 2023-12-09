@@ -1,5 +1,6 @@
 import { CssBaseline } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
+import { GameProvider } from "context/GameContext";
 import { LocaleContextProvider } from "context/LocaleContext";
 import { SnackbarProvider } from "context/SnackbarProvider";
 import { ThemeProvider } from "context/ThemeProvider";
@@ -10,10 +11,12 @@ export const App = () => {
     <LocaleContextProvider>
       <BrowserRouter>
         <ThemeProvider>
-          <SnackbarProvider>
-            <CssBaseline />
-            <AppRoutes />
-          </SnackbarProvider>
+          <GameProvider>
+            <SnackbarProvider>
+              <CssBaseline />
+              <AppRoutes />
+            </SnackbarProvider>
+          </GameProvider>
         </ThemeProvider>
       </BrowserRouter>
     </LocaleContextProvider>
