@@ -1,18 +1,20 @@
-export type Ship =
+export type ShipType =
   | "carrier"
   | "battleship"
   | "cruiser"
   | "submarine"
-  | "destroyer";
+  | "aircraft";
 
-export type ShipType = {
-  [key in Ship]?: {
-    size: number;
-    count: number;
-  };
+export type ShipConfig = {
+  size: number;
+  count: number;
+  img: string;
+};
+export type Ship = {
+  [key in ShipType]?: ShipConfig;
 };
 
 export type ShipEntry = {
-  ship: Ship;
+  ship: ShipType;
   positions: number[][];
 };

@@ -1,4 +1,9 @@
-import { ShipEntry, ShipType } from "models/game";
+import AircraftShapeImage from "assets/aircraft-shape.png";
+import BattleshipShapeImage from "assets/battleship-shape.png";
+import CarrierShapeImage from "assets/carrier-shape.png";
+import CruiserShapeImage from "assets/cruiser-shape.png";
+import SubmarineShapeImage from "assets/submarine-shape.png";
+import { Ship, ShipEntry } from "models/game";
 
 export const ROUTER_PATH = {
   GAME: "/",
@@ -6,6 +11,44 @@ export const ROUTER_PATH = {
 };
 
 export const DEFAULT_ROUTE = ROUTER_PATH.GAME;
+
+export const SHIPS: Ship[] = [
+  {
+    carrier: {
+      size: 5,
+      count: 1,
+      img: CarrierShapeImage
+    }
+  },
+  {
+    battleship: {
+      size: 4,
+      count: 1,
+      img: BattleshipShapeImage
+    }
+  },
+  {
+    cruiser: {
+      size: 3,
+      count: 1,
+      img: CruiserShapeImage
+    }
+  },
+  {
+    submarine: {
+      size: 3,
+      count: 1,
+      img: SubmarineShapeImage
+    }
+  },
+  {
+    aircraft: {
+      size: 2,
+      count: 1,
+      img: AircraftShapeImage
+    }
+  }
+];
 
 export const GAME_LAYOUT: ShipEntry[] = [
   {
@@ -44,35 +87,10 @@ export const GAME_LAYOUT: ShipEntry[] = [
     ]
   },
   {
-    ship: "destroyer",
+    ship: "aircraft",
     positions: [
       [0, 0],
       [1, 0]
     ]
-  }
-];
-
-export const SHIP_TYPES: ShipType[] = [
-  {
-    carrier: {
-      size: 5,
-      count: 1
-    },
-    battleship: {
-      size: 4,
-      count: 1
-    },
-    cruiser: {
-      size: 3,
-      count: 1
-    },
-    submarine: {
-      size: 3,
-      count: 1
-    },
-    destroyer: {
-      size: 2,
-      count: 1
-    }
   }
 ];

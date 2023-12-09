@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { GameContext } from "./index";
 
-export const useSnackbar = () => {
+export const useGameContext = () => {
   const gameContext = useContext(GameContext);
 
   if (!gameContext) {
