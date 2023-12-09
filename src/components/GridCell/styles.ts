@@ -6,5 +6,9 @@ export const sxStyles = (): { [_: string]: SxProps } => ({
     borderStyle: "solid",
     borderWidth: 1,
     borderColor: theme.palette.black.main
+  },
+  button: {
+    width: "100%",
+    height: "100%"
   }
 });
