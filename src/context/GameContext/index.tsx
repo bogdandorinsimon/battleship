@@ -1,11 +1,12 @@
 import { ReactNode, createContext, useMemo, useState } from "react";
-import { GAME_LAYOUT, SHIPS } from "helpers/constants";
+import { SHIPS } from "helpers/constants";
+import { calculateGameLayout } from "helpers/game";
 import { useMountEffect } from "hooks/useMountEffect";
-import { Ship, ShipEntry } from "models/game";
+import { GameLayout, Ship } from "models/game";
 
 type GameSignature = {
   ships: Ship[];
-  gameLayout: ShipEntry[];
+  gameLayout: GameLayout;
 };
 
 export const GameContext = createContext<Optional<GameSignature>>({
@@ -19,11 +20,11 @@ type Props = {
 
 export const GameProvider = ({ children }: Props): JSX.Element => {
   const [ships, setShips] = useState<Ship[]>([]);
-  const [gameLayout, setGameLayout] = useState<ShipEntry[]>([]);
+  const [gameLayout, setGameLayout] = useState<GameLayout>([]);
 
   useMountEffect(() => {
     setShips(SHIPS);
-    setGameLayout(GAME_LAYOUT);
+    setGameLayout(calculateGameLayout(SHIPS));
   });
 
   const contextValue = useMemo(() => {

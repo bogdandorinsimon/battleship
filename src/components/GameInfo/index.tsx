@@ -9,9 +9,9 @@ const GameInfo = () => {
   const classes = sxStyles();
   const { ships } = useGameContext();
 
-  const renderShipType = (shipConfig: ShipConfig) => {
+  const renderShipType = (shipConfig: ShipConfig, index: number) => {
     return (
-      <Box sx={classes.shipContainer}>
+      <Box sx={classes.shipContainer} key={`${shipConfig.size}_${index}`}>
         <Box
           key={shipConfig.img}
           component="img"
@@ -32,7 +32,9 @@ const GameInfo = () => {
 
   return (
     <Grid item xs={1}>
-      {ships.map((ship) => renderShipType(getShipConfigByShip(ship)))}
+      {ships.map((ship, index) =>
+        renderShipType(getShipConfigByShip(ship), index)
+      )}
     </Grid>
   );
 };

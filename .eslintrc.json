@@ -31,6 +31,7 @@
     "react/jsx-props-no-spreading": "off",
     "react/react-in-jsx-scope": "off",
     "react/require-default-props": "off",
+    "no-plusplus": "off",
     "react/style-prop-object": [
       "error",
       {

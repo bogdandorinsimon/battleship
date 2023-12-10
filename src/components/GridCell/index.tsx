@@ -1,6 +1,6 @@
 import { Box, Button, Grid } from "@mui/material";
-import HitImage from "assets/hit.png";
-import MissImage from "assets/miss.png";
+import HitImage from "assets/png/hit.png";
+import MissImage from "assets/png/miss.png";
 import { CellMode } from "models/components";
 import { sxStyles } from "./styles";
 

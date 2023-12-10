@@ -1,9 +1,9 @@
-import AircraftShapeImage from "assets/aircraft-shape.png";
-import BattleshipShapeImage from "assets/battleship-shape.png";
-import CarrierShapeImage from "assets/carrier-shape.png";
-import CruiserShapeImage from "assets/cruiser-shape.png";
-import SubmarineShapeImage from "assets/submarine-shape.png";
-import { Ship, ShipEntry } from "models/game";
+import AircraftShapeImage from "assets/png/aircraft-shape.png";
+import BattleshipShapeImage from "assets/png/battleship-shape.png";
+import CarrierShapeImage from "assets/png/carrier-shape.png";
+import CruiserShapeImage from "assets/png/cruiser-shape.png";
+import SubmarineShapeImage from "assets/png/submarine-shape.png";
+import { GameLayout, Ship } from "models/game";
 
 export const ROUTER_PATH = {
   GAME: "/",
@@ -11,6 +11,8 @@ export const ROUTER_PATH = {
 };
 
 export const DEFAULT_ROUTE = ROUTER_PATH.GAME;
+export const NO_OF_GRID_ROWS = 10;
+export const NO_OF_GRID_COLUMNS = 10;
 
 export const SHIPS: Ship[] = [
   {
@@ -50,7 +52,7 @@ export const SHIPS: Ship[] = [
   }
 ];
 
-export const GAME_LAYOUT: ShipEntry[] = [
+export const GAME_LAYOUT: GameLayout = [
   {
     ship: "carrier",
     positions: [

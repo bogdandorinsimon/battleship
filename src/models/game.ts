@@ -5,6 +5,8 @@ export type ShipType =
   | "submarine"
   | "aircraft";
 
+export type Direction = "u" | "d" | "l" | "r";
+
 export type ShipConfig = {
   size: number;
   count: number;
@@ -18,3 +20,5 @@ export type ShipEntry = {
   ship: ShipType;
   positions: number[][];
 };
+
+export type GameLayout = ShipEntry[];
