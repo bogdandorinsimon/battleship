@@ -17,19 +17,19 @@ export const getShipTypeByShip = (ship: Ship): ShipType =>
 export const getShipConfigByShip = (ship: Ship): ShipConfig =>
   ship[getShipTypeByShip(ship)]!;
 
-const getRandomCell = () => {
+export const getRandomCell = () => {
   const row = Math.floor(Math.random() * 10);
   const column = Math.floor(Math.random() * 10);
 
   return [row, column];
 };
 
-const getInitialShipEntry = (ship: Ship) => ({
+export const getInitialShipEntry = (ship: Ship) => ({
   ship: getShipTypeByShip(ship),
   positions: [getRandomCell()]
 });
 
-const isShipOverlappingBorder = (shipEntry: ShipEntry) =>
+export const isShipOverlappingBorder = (shipEntry: ShipEntry) =>
   shipEntry.positions.find(
     (position) =>
       position[0] >= NO_OF_GRID_ROWS ||
@@ -47,7 +47,7 @@ export const getShipByPosition = (
   );
 };
 
-const isShipOverlappingOtherShip = (
+export const isShipOverlappingOtherShip = (
   shipEntry: ShipEntry,
   gameLayout: GameLayout
 ) => {
@@ -64,7 +64,7 @@ const isShipOverlappingOtherShip = (
   return intersectingPosition;
 };
 
-const isAValidShipEntry = (
+export const isAValidShipEntry = (
   shipEntry: ShipEntry,
   gameLayout: GameLayout
 ): boolean =>
