@@ -1,4 +1,4 @@
-import { shuffle } from "lodash";
+import { isEqual, shuffle } from "lodash";
 import {
   Direction,
   GameLayout,
@@ -37,6 +37,15 @@ const isShipOverlappingBorder = (shipEntry: ShipEntry) =>
       position[0] < 0 ||
       position[1] < 0
   );
+
+export const getShipByPosition = (
+  gameLayout: GameLayout,
+  position: number[]
+) => {
+  return gameLayout.find((layout) =>
+    layout.positions.find((pos) => isEqual(pos, position))
+  );
+};
 
 const isShipOverlappingOtherShip = (
   shipEntry: ShipEntry,
@@ -148,4 +157,11 @@ export const calculateGameLayout = (ships: Ship[]): GameLayout => {
   });
 
   return gameLayout;
+};
+
+export const initializeHits = (ships: Ship[]): GameLayout => {
+  return ships.map((ship) => ({
+    ship: getShipTypeByShip(ship),
+    positions: []
+  }));
 };

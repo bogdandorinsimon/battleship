@@ -1,19 +1,28 @@
 import { Box, Button, Grid } from "@mui/material";
 import HitImage from "assets/png/hit.png";
 import MissImage from "assets/png/miss.png";
-import { CellMode } from "models/components";
+import { useGameContext } from "context/GameContext/useGameContext";
+import { getGridRowAndColumn } from "helpers/components";
+import { useCellMode } from "hooks/useCellMode";
 import { sxStyles } from "./styles";
 
 type Props = {
-  cellMode: CellMode;
+  cellNumber: number;
 };
 
-const GridCell = ({ cellMode }: Props) => {
+const GridCell = ({ cellNumber }: Props) => {
+  const { handleCellClick } = useGameContext();
+  const cellMode = useCellMode(cellNumber);
   const classes = sxStyles();
+
+  const handleClick = () => {
+    const cell = getGridRowAndColumn(cellNumber);
+    handleCellClick(cell);
+  };
 
   const renderCellContent = () => {
     if (cellMode === "not_clicked") {
-      return <Button sx={classes.cellContent} />;
+      return <Button sx={classes.cellContent} onClick={handleClick} />;
     }
 
     return (
@@ -26,7 +35,7 @@ const GridCell = ({ cellMode }: Props) => {
   };
   return (
     <Grid item xs={1} sx={classes.cell}>
-      {renderCellContent()}
+      <Box sx={{ width: "100%", height: "100%" }}>{renderCellContent()}</Box>
     </Grid>
   );
 };

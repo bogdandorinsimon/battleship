@@ -1,9 +1,6 @@
 import { Grid } from "@mui/material";
-import { isEqual } from "lodash";
 import { useRef } from "react";
 import GridCell from "components/GridCell";
-import { useGameContext } from "context/GameContext/useGameContext";
-import { getGridRowAndColumn } from "helpers/components";
 import { NO_OF_GRID_COLUMNS, NO_OF_GRID_ROWS } from "helpers/constants";
 import { useElementDimensions } from "hooks/useElementDimensions";
 import { useWindowDimensions } from "hooks/useWindowDimensions";
@@ -20,8 +17,6 @@ const GameGrid = () => {
 
   const classes = sxStyles(minContainerSize);
 
-  const { gameLayout } = useGameContext();
-
   return (
     <Grid
       item
@@ -31,18 +26,7 @@ const GameGrid = () => {
     >
       <Grid container columns={NO_OF_GRID_COLUMNS} sx={classes.grid}>
         {GRID_ARRAY.map((cell) => (
-          <GridCell
-            key={cell}
-            cellMode={
-              gameLayout.find((entry) =>
-                entry.positions.find((position) =>
-                  isEqual(position, getGridRowAndColumn(cell))
-                )
-              )
-                ? "hit"
-                : "miss"
-            }
-          />
+          <GridCell key={cell} cellNumber={cell} />
         ))}
       </Grid>
     </Grid>

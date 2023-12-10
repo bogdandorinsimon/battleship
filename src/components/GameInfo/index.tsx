@@ -1,29 +1,35 @@
 import { Box, Grid } from "@mui/material";
-import HitSmallImage from "assets/hit-small.png";
+import HitSmallImage from "assets/png/hit-small.png";
 import { useGameContext } from "context/GameContext/useGameContext";
 import { getShipConfigByShip } from "helpers/game";
-import { ShipConfig } from "models/game";
+import { Ship } from "models/game";
 import { sxStyles } from "./styles";
 
 const GameInfo = () => {
   const classes = sxStyles();
-  const { ships } = useGameContext();
+  const { isShipSunk, ships } = useGameContext();
 
-  const renderShipType = (shipConfig: ShipConfig, index: number) => {
+  const renderShipType = (ship: Ship, index: number) => {
+    const shipConfig = getShipConfigByShip(ship);
+
+    if (isShipSunk(ship)) {
+      return null;
+    }
+
     return (
       <Box sx={classes.shipContainer} key={`${shipConfig.size}_${index}`}>
         <Box
           key={shipConfig.img}
           component="img"
           src={shipConfig.img}
-          sx={{ objectFit: "contain", display: "flex" }}
+          sx={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
         />
         {[...Array(shipConfig.size).keys()].map((sizeKey) => (
           <Box
             key={sizeKey}
             component="img"
             src={HitSmallImage}
-            sx={{ objectFit: "contain", display: "flex" }}
+            sx={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
           />
         ))}
       </Box>
@@ -32,9 +38,7 @@ const GameInfo = () => {
 
   return (
     <Grid item xs={1}>
-      {ships.map((ship, index) =>
-        renderShipType(getShipConfigByShip(ship), index)
-      )}
+      {ships.map((ship, index) => renderShipType(ship, index))}
     </Grid>
   );
 };

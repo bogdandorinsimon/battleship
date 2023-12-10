@@ -6,6 +6,8 @@
     "page_not_found": "Page not found!"
   },
   "game": {
-    "title": "Battleship"
+    "reset": "Reset",
+    "title": "Battleship",
+    "win_message": "Congrats! You won!"
   }
 }
