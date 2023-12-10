@@ -98,9 +98,15 @@ export const calculateShipEntry = (
   directions: Direction[],
   directionIndex: number,
   gameLayout: GameLayout
-): ShipEntry | undefined => {
+): ShipEntry => {
   if (directionIndex === directions.length) {
-    return;
+    return calculateShipEntry(
+      ship,
+      getInitialShipEntry(ship),
+      shuffle(DIRECTIONS),
+      0,
+      gameLayout
+    );
   }
 
   if (!isAValidShipEntry(shipEntry, gameLayout)) {
@@ -112,6 +118,7 @@ export const calculateShipEntry = (
       gameLayout
     );
   }
+
   if (isACompleteShipEntry(ship, shipEntry)) {
     return shipEntry;
   }
@@ -137,13 +144,8 @@ export const calculateGameLayout = (ships: Ship[]): GameLayout => {
       gameLayout
     );
 
-    if (!newShipEntry) {
-      return [];
-    }
-
     gameLayout.push(newShipEntry);
   });
 
-  console.log("gameLayout", gameLayout);
   return gameLayout;
 };
