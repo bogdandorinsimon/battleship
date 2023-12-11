@@ -6,8 +6,8 @@ import { Ship } from "models/game";
 import { sxStyles } from "./styles";
 
 const GameInfo = () => {
-  const classes = sxStyles();
   const { isShipSunk, ships } = useGameContext();
+  const classes = sxStyles(ships.length);
 
   const renderShipType = (ship: Ship, index: number) => {
     const shipConfig = getShipConfigByShip(ship);
@@ -34,7 +34,7 @@ const GameInfo = () => {
   };
 
   return (
-    <Grid item xs={1}>
+    <Grid item xs={1} sx={classes.container}>
       {ships.map((ship, index) => renderShipType(ship, index))}
     </Grid>
   );

@@ -1,6 +1,9 @@
 import { SxProps } from "@mui/material";
 
-export const sxStyles = (): { [_: string]: SxProps } => ({
+export const sxStyles = (noOfShips: number): { [_: string]: SxProps } => ({
+  container: {
+    height: noOfShips * 40
+  },
   shipContainer: {
     display: "flex",
     flexDirection: "row",

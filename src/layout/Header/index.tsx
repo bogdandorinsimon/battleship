@@ -1,9 +1,11 @@
-import { AppBar, Box, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Toolbar, Typography, useMediaQuery } from "@mui/material";
 import { usePageTitle } from "hooks/usePageTitle";
+import { theme } from "theme/theme";
 import { sxStyles } from "./styles";
 
 export const Header = () => {
   const classes = sxStyles();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const pageTitle = usePageTitle();
 
   return (
@@ -16,7 +18,11 @@ export const Header = () => {
           alignItems="center"
           sx={classes.container}
         >
-          <Typography variant="h1" sx={classes.title} color="text.primary">
+          <Typography
+            variant={isMobile ? "h3" : "h1"}
+            sx={classes.title}
+            color="text.primary"
+          >
             {pageTitle}
           </Typography>
         </Box>
