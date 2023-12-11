@@ -8,9 +8,9 @@ declare module "@mui/material/Typography" {
 }
 
 export const typography: TypographyOptions = {
-  fontFamily: "IBM Plex Sans",
+  fontFamily: "Cabin Sketch",
   h1: {
-    fontSize: 34,
+    fontSize: 60,
     lineHeight: "51px",
     fontWeight: 500,
     textTransform: "none"

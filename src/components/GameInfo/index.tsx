@@ -1,5 +1,5 @@
-import { Box, Grid } from "@mui/material";
-import HitSmallImage from "assets/png/hit-small.png";
+import { Box, Grid, SvgIcon } from "@mui/material";
+import { HitIcon } from "assets/svg";
 import { useGameContext } from "context/GameContext/useGameContext";
 import { getShipConfigByShip } from "helpers/game";
 import { Ship } from "models/game";
@@ -22,15 +22,12 @@ const GameInfo = () => {
           key={shipConfig.img}
           component="img"
           src={shipConfig.img}
-          sx={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
+          sx={classes.shipImage}
         />
         {[...Array(shipConfig.size).keys()].map((sizeKey) => (
-          <Box
-            key={sizeKey}
-            component="img"
-            src={HitSmallImage}
-            sx={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }}
-          />
+          <Box key={sizeKey} sx={classes.hitIconContainer}>
+            <SvgIcon component={HitIcon} />
+          </Box>
         ))}
       </Box>
     );

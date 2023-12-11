@@ -5,8 +5,8 @@ export const sxStyles = (): { [_: string]: SxProps } => ({
   container: {
     flexGrow: 1,
     p: 7,
-    pt: 0,
-    bgcolor: theme.palette.white.main,
+    pt: 3,
+    bgcolor: theme.palette.secondary.main,
     overflow: "auto",
     position: "relative"
   }

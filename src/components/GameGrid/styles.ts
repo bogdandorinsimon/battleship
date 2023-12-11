@@ -8,7 +8,7 @@ export const sxStyles = (size: number): { [_: string]: SxProps } => ({
   },
   grid: {
     borderStyle: "solid",
-    borderColor: theme.palette.black.main,
+    borderColor: theme.palette.primary.main,
     width: size,
     height: size
   }

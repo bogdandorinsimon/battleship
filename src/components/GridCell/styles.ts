@@ -1,14 +1,23 @@
 import { SxProps } from "@mui/material";
 import { theme } from "theme/theme";
 
-export const sxStyles = (): { [_: string]: SxProps } => ({
+export const sxStyles = (cellSize: number): { [_: string]: SxProps } => ({
   cell: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     borderStyle: "solid",
     borderWidth: 1,
-    borderColor: theme.palette.black.main
+    borderColor: theme.palette.primary.main
   },
-  cellContent: {
-    width: "100%",
-    height: "100%"
+  button: {
+    display: "flex",
+    width: "95%",
+    height: "95%"
+  },
+  icon: {
+    display: "flex",
+    width: cellSize,
+    height: cellSize
   }
 });

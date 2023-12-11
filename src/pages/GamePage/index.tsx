@@ -1,5 +1,6 @@
 import { Button, Grid } from "@mui/material";
 import { useEffect } from "react";
+import { RestartIcon } from "assets/svg";
 import GameGrid from "components/GameGrid";
 import GameInfo from "components/GameInfo";
 import { LoadingIndicator } from "components/LoadingIndicator";
@@ -12,7 +13,7 @@ import { sxStyles } from "./styles";
 const GamePage = () => {
   const classes = sxStyles();
   const { translate } = useTranslate();
-  const { isInitializing, reset, hasWon } = useGameContext();
+  const { isInitializing, hasWon, reset } = useGameContext();
   const { openSnackbar } = useSnackbar();
 
   useEffect(() => {
@@ -34,7 +35,13 @@ const GamePage = () => {
           <GameGrid />
         </Grid>
       )}
-      <Button onClick={reset}>{translate("game.reset", "Reset")}</Button>
+      <Button
+        onClick={reset}
+        startIcon={<RestartIcon />}
+        sx={classes.resetButton}
+      >
+        {translate("game.reset", "Reset")}
+      </Button>
     </PageWrapper>
   );
 };

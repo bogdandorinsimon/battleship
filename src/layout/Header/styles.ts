@@ -11,14 +11,17 @@ export const sxStyles = (): { [_: string]: SxProps } => ({
     height: HEADER_HEIGHT
   },
   toolbar: {
-    height: "100%",
-    pl: 6
+    height: "100%"
   },
   title: {
-    ml: 6
+    alignSelf: "center"
   },
   container: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     width: "100%",
-    height: "100%"
+    height: "100%",
+    bgcolor: theme.palette.secondary.main
   }
 });

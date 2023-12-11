@@ -4,7 +4,7 @@ import React from "react";
 import { SnackbarOptions } from "models/components";
 import { sxStyles } from "./styles";
 
-const SNACKBAR_AUTOHIDE_DURATION = 3000;
+const SNACKBAR_AUTOHIDE_DURATION = 6000;
 
 type Props = SnackbarOptions & {
   isOpen: boolean;

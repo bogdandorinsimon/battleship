@@ -16,7 +16,7 @@ export const Header = () => {
           alignItems="center"
           sx={classes.container}
         >
-          <Typography variant="h2" sx={classes.title} color="text.primary">
+          <Typography variant="h1" sx={classes.title} color="text.primary">
             {pageTitle}
           </Typography>
         </Box>
